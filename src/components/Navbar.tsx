@@ -1,94 +1,52 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Droplets } from "lucide-react";
-
-const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/quienes-somos", label: "Quiénes Somos" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/eventos", label: "Eventos" },
-  { href: "/lo-que-creemos", label: "Lo que Creemos" },
-  { href: "/contacto", label: "Contacto" },
-];
+import React from "react";
+import { Button } from "@/components/ui/button";
+import Logo from "@/components/ui/Logo";
+import { useWaitlist } from "@/context/WaitlistContext";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <nav
-      className={`fixed top-4 left-4 right-4 z-50 rounded-2xl transition-all duration-500 ${
-        scrolled
-          ? "glass shadow-lg shadow-aqua-900/5"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-14">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <Droplets className="w-6 h-6 text-aqua-600 group-hover:text-aqua-500 transition-colors" />
-            <span className="text-base font-bold text-aqua-800 tracking-tight">
-              Ríos de Agua Viva
-            </span>
-          </Link>
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-0.5">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-aqua-700 hover:bg-aqua-100/40 rounded-lg transition-all"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-gray-600 hover:text-aqua-700 hover:bg-aqua-100/40 rounded-lg transition-all"
-          >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden rounded-b-2xl"
-          >
-            <div className="px-4 py-3 space-y-1 glass">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2.5 text-sm font-medium text-gray-600 hover:text-aqua-700 hover:bg-aqua-100/40 rounded-lg transition-all"
-                >
-                  {link.label}
-                </Link>
-              ))}
+    const { openWaitlist } = useWaitlist();
+    return (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[98%] max-w-7xl flex items-center justify-between px-4 py-2 rounded-[20px] bg-white/20 backdrop-blur-sm z-50">
+            {/* Left: Logo + Text */}
+            <div className="ml-4 z-10 select-none flex items-center gap-3">
+                <Logo className="text-white w-6 h-6" />
+                <span className="text-white text-xl font-fira tracking-wide">CANON</span>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
+
+            {/* Center: Navigation Buttons - Absolutely Centered */}
+            <div className="hidden md:flex gap-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                {[
+                    { label: "HOME", id: "home" },
+                    { label: "FEATURES", id: "features" },
+                    { label: "PRICING", id: "pricing" },
+                    { label: "TESTIMONIALS", id: "testimonials" }
+                ].map((item) => (
+                    <Button
+                        key={item.label}
+                        variant="ghost"
+                        onClick={() => {
+                            const element = document.getElementById(item.id);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className="h-8 rounded-[15px] bg-white/30 px-4 lg:px-6 text-[12px] lg:text-[13.6px] text-white hover:bg-white/50 transition-all duration-300 hover:scale-105 font-fira"
+                    >
+                        {item.label}
+                    </Button>
+                ))}
+            </div>
+
+            {/* Right: Sign Up Button */}
+            <div className="z-10">
+                <Button
+                    onClick={openWaitlist}
+                    className="h-9 rounded-[15px] bg-white px-4 md:px-6 text-[13px] md:text-[15px] text-black hover:bg-white/90 hover:scale-105 transition-all duration-300 font-fira whitespace-nowrap">
+                    SIGN UP
+                </Button>
+            </div>
+        </div>
+    );
 }

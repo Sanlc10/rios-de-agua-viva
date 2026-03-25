@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Code, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { WaitlistProvider } from "@/context/WaitlistContext";
+import WaitlistModal from "@/components/WaitlistModal";
 
-const inter = Inter({
+const firaCode = Fira_Code({
+  variable: "--font-fira",
   subsets: ["latin"],
-  variable: "--font-inter",
+});
+
+const seasons = Playfair_Display({
+  variable: "--font-seasons",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Ríos de Agua Viva | Iglesia Cristiana en Cholula",
-  description:
-    "Iglesia Cristiana Ríos de Agua Viva en San Andrés Cholula, Puebla. Una comunidad apasionada por Jesús. Pastores Juan Manuel y Mariana Fierro.",
-  keywords: [
-    "iglesia cristiana",
-    "cholula",
-    "puebla",
-    "ríos de agua viva",
-    "iglesia jóvenes",
-    "comunidad cristiana",
-  ],
+  title: "Canon Calendar",
+  description: "Your personal AI organization advisor",
 };
 
 export default function RootLayout({
@@ -29,11 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="font-[var(--font-inter)] antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+    <html lang="en">
+      <body
+        className={`${firaCode.variable} ${seasons.variable} antialiased`}
+      >
+        <WaitlistProvider>
+          {children}
+          <WaitlistModal />
+        </WaitlistProvider>
       </body>
     </html>
   );
