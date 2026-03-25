@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
-import { Heart, Target, Eye } from "lucide-react";
+import { Heart, Target, Eye, User } from "lucide-react";
 
 export default function QuienesSomos() {
   return (
@@ -13,7 +13,7 @@ export default function QuienesSomos() {
         subtitle="Somos una iglesia apasionada por Jesús, ubicada en el corazón de Cholula. Una comunidad mayormente de jóvenes que busca vivir la fe de manera auténtica."
       />
 
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-beige-100/50">
         <div className="max-w-6xl mx-auto">
           {/* Pastors */}
           <motion.div
@@ -31,8 +31,8 @@ export default function QuienesSomos() {
 
             <div className="max-w-lg mx-auto">
               {/* Placeholder pastor photo */}
-              <div className="w-32 h-32 rounded-full bg-aqua-100 mx-auto mb-6 flex items-center justify-center">
-                <span className="text-4xl">👨‍👩‍👦</span>
+              <div className="w-32 h-32 rounded-full bg-aqua-100/60 glass-card mx-auto mb-6 flex items-center justify-center">
+                <User className="w-12 h-12 text-aqua-500" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-1">
                 Juan Manuel y Mariana Fierro
@@ -73,10 +73,10 @@ export default function QuienesSomos() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="p-8 rounded-3xl bg-beige-50 border border-aqua-100/30 text-center"
+                  className="p-8 rounded-3xl glass-card hover:shadow-lg hover:shadow-aqua-100/30 transition-all text-center"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-aqua-100 flex items-center justify-center mb-5 mx-auto">
-                    <Icon className="w-6 h-6 text-aqua-700" />
+                  <div className="w-12 h-12 rounded-2xl bg-aqua-100/60 flex items-center justify-center mb-5 mx-auto">
+                    <Icon className="w-6 h-6 text-aqua-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">
                     {item.title}

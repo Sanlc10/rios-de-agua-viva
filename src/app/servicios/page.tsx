@@ -53,7 +53,7 @@ export default function Servicios() {
       />
 
       {/* Services detail */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-beige-100/50">
         <div className="max-w-4xl mx-auto space-y-8">
           {services.map((service, i) => {
             const Icon = service.icon;
@@ -64,11 +64,11 @@ export default function Servicios() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl bg-beige-50 border border-aqua-100/30 hover:border-aqua-200 transition-all"
+                className="p-8 rounded-3xl glass-card hover:shadow-lg hover:shadow-aqua-100/30 transition-all"
               >
                 <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-aqua-100 flex items-center justify-center shrink-0">
-                    <Icon className="w-7 h-7 text-aqua-700" />
+                  <div className="w-14 h-14 rounded-2xl bg-aqua-100/60 flex items-center justify-center shrink-0">
+                    <Icon className="w-7 h-7 text-aqua-600" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -143,9 +143,11 @@ export default function Servicios() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-6 rounded-2xl bg-white border border-aqua-100/30"
+                  className="p-6 rounded-2xl glass-card hover:shadow-lg hover:shadow-aqua-100/20 transition-all"
                 >
-                  <Icon className="w-6 h-6 text-aqua-600 mb-3" />
+                  <div className="w-10 h-10 rounded-xl bg-aqua-100/60 flex items-center justify-center mb-3">
+                    <Icon className="w-5 h-5 text-aqua-600" />
+                  </div>
                   <h3 className="text-base font-semibold text-gray-900 mb-2">
                     {item.title}
                   </h3>

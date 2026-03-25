@@ -1,9 +1,9 @@
-import { Droplets, MapPin, Clock, Phone } from "lucide-react";
+import { Droplets, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-aqua-900 text-white/80">
+    <footer className="glass-dark text-white/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}

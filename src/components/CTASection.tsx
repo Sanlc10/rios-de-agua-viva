@@ -13,9 +13,9 @@ export default function CTASection() {
           viewport={{ once: true }}
           className="relative rounded-3xl bg-gradient-to-br from-aqua-600 to-aqua-800 p-12 md:p-16 text-center overflow-hidden"
         >
-          {/* Decorative circles */}
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-aqua-500/20 -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-aqua-400/10 translate-y-1/2 -translate-x-1/2" />
+          {/* Decorative blurred circles */}
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-aqua-400/20 -translate-y-1/2 translate-x-1/2 blur-2xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-aqua-300/15 translate-y-1/2 -translate-x-1/2 blur-2xl" />
 
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
@@ -28,13 +28,13 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/servicios"
-                className="px-8 py-3.5 bg-white text-aqua-700 font-medium rounded-full hover:bg-aqua-50 transition-all hover:scale-105 active:scale-95 shadow-lg"
+                className="px-8 py-3.5 bg-white text-aqua-700 font-medium rounded-full hover:bg-beige-50 transition-all hover:scale-105 active:scale-95 shadow-lg"
               >
                 Planea tu visita
               </Link>
               <Link
                 href="/contacto"
-                className="px-8 py-3.5 bg-aqua-500/30 text-white font-medium rounded-full hover:bg-aqua-500/40 transition-all hover:scale-105 active:scale-95 border border-white/20"
+                className="px-8 py-3.5 bg-white/10 backdrop-blur-sm text-white font-medium rounded-full hover:bg-white/20 transition-all hover:scale-105 active:scale-95 border border-white/20"
               >
                 Contáctanos
               </Link>

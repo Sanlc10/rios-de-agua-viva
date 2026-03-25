@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
+import { BookOpen } from "lucide-react";
 
 const beliefs = [
   {
@@ -55,7 +56,7 @@ export default function LoQueCreemos() {
         subtitle="Estas son las verdades bíblicas fundamentales que guían nuestra vida y nuestra comunidad."
       />
 
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-beige-100/50">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             {beliefs.map((belief, i) => (
@@ -65,17 +66,24 @@ export default function LoQueCreemos() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="p-8 rounded-3xl bg-beige-50 border border-aqua-100/30"
+                className="p-8 rounded-3xl glass-card"
               >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {belief.title}
-                  </h3>
-                  <span className="text-xs font-medium text-aqua-600 bg-aqua-50 px-3 py-1 rounded-full whitespace-nowrap">
-                    {belief.verse}
-                  </span>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-aqua-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                    <BookOpen className="w-5 h-5 text-aqua-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {belief.title}
+                      </h3>
+                      <span className="text-xs font-medium text-aqua-600 bg-aqua-100/50 px-3 py-1 rounded-full whitespace-nowrap">
+                        {belief.verse}
+                      </span>
+                    </div>
+                    <p className="text-gray-500 leading-relaxed">{belief.text}</p>
+                  </div>
                 </div>
-                <p className="text-gray-500 leading-relaxed">{belief.text}</p>
               </motion.div>
             ))}
           </div>

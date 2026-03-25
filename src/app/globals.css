@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-aqua-50: #f0fdfa;
-  --color-aqua-100: #ccfbf1;
-  --color-aqua-200: #99f6e4;
-  --color-aqua-300: #5eead4;
-  --color-aqua-400: #2dd4bf;
-  --color-aqua-500: #14b8a6;
-  --color-aqua-600: #0d9488;
-  --color-aqua-700: #0f766e;
-  --color-aqua-800: #115e59;
-  --color-aqua-900: #134e4a;
+  --color-aqua-50: #eff6ff;
+  --color-aqua-100: #dbeafe;
+  --color-aqua-200: #bfdbfe;
+  --color-aqua-300: #93c5fd;
+  --color-aqua-400: #60a5fa;
+  --color-aqua-500: #3b82f6;
+  --color-aqua-600: #2563eb;
+  --color-aqua-700: #1d4ed8;
+  --color-aqua-800: #1e40af;
+  --color-aqua-900: #1e3a5f;
 
-  --color-beige-50: #fefdfb;
-  --color-beige-100: #fdf8f0;
-  --color-beige-200: #f5edd6;
+  --color-beige-50: #fefcf8;
+  --color-beige-100: #fdf6e8;
+  --color-beige-200: #f5ead0;
 
   --font-heading: "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -27,4 +27,25 @@ html {
 body {
   background-color: var(--color-beige-50);
   color: #1a1a1a;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(254, 252, 248, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.08);
+}
+
+.glass-card {
+  background: rgba(254, 252, 248, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.glass-dark {
+  background: rgba(30, 58, 95, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }

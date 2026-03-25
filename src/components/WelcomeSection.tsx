@@ -57,10 +57,10 @@ export default function WelcomeSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="text-center"
+                className="text-center p-8 rounded-3xl glass-card hover:shadow-lg hover:shadow-aqua-100/30 transition-all"
               >
-                <div className="w-14 h-14 rounded-2xl bg-aqua-100 flex items-center justify-center mb-5 mx-auto">
-                  <Icon className="w-7 h-7 text-aqua-700" />
+                <div className="w-14 h-14 rounded-2xl bg-aqua-100/60 flex items-center justify-center mb-5 mx-auto">
+                  <Icon className="w-7 h-7 text-aqua-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {value.title}

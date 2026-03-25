@@ -1,25 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-aqua-50 via-beige-50 to-aqua-100/30" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-beige-100 via-beige-50 to-aqua-50/40" />
 
-      {/* Subtle water pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 50%, #14b8a6 0%, transparent 50%), radial-gradient(circle at 75% 50%, #0d9488 0%, transparent 50%)",
-          }}
-        />
-      </div>
+      {/* Decorative blobs */}
+      <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-aqua-200/20 blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-aqua-300/15 blur-3xl" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <motion.div
@@ -50,13 +43,13 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/servicios"
-              className="px-8 py-3.5 bg-aqua-600 text-white font-medium rounded-full hover:bg-aqua-700 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-aqua-600/20"
+              className="px-8 py-3.5 bg-aqua-600 text-white font-medium rounded-full hover:bg-aqua-700 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-aqua-600/25"
             >
               Planea tu visita
             </Link>
             <Link
               href="/quienes-somos"
-              className="px-8 py-3.5 bg-white text-aqua-700 font-medium rounded-full hover:bg-aqua-50 transition-all hover:scale-105 active:scale-95 border border-aqua-200"
+              className="px-8 py-3.5 glass-card text-aqua-700 font-medium rounded-full hover:bg-aqua-50/60 transition-all hover:scale-105 active:scale-95"
             >
               Conócenos
             </Link>
@@ -70,11 +63,13 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 flex flex-wrap items-center justify-center gap-3"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm text-gray-600 border border-aqua-100/50 shadow-sm">
-            🕐 Domingos 12:00 PM
+          <span className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-sm text-gray-600 shadow-sm">
+            <Clock className="w-4 h-4 text-aqua-500" />
+            Domingos 12:00 PM
           </span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm text-gray-600 border border-aqua-100/50 shadow-sm">
-            📍 San Andrés Cholula, Puebla
+          <span className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-sm text-gray-600 shadow-sm">
+            <MapPin className="w-4 h-4 text-aqua-500" />
+            San Andrés Cholula, Puebla
           </span>
         </motion.div>
 
