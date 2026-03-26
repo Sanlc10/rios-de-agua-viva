@@ -1,12 +1,12 @@
 import HeroSection from "@/components/HeroSection";
-import ManageTasksSection from "@/components/ManageTasksSection";
-import PricingSection from "@/components/PricingSection";
-import SmartCalendarSection from "@/components/SmartCalendarSection";
-import GetStartedSection from "@/components/GetStartedSection";
+import UpcomingEventsSection from "@/components/UpcomingEventsSection";
+import LocationTimesSection from "@/components/LocationTimesSection";
+import AboutUsSection from "@/components/AboutUsSection";
+import JoinUsSection from "@/components/JoinUsSection";
 import Footer from "@/components/Footer";
 
 import Navbar from "@/components/Navbar";
-import AIFeaturesSection from "@/components/AIFeaturesSection";
+import MinistriesSection from "@/components/MinistriesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
@@ -14,12 +14,12 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <Navbar />
       <HeroSection />
-      <SmartCalendarSection />
-      <AIFeaturesSection />
-      <ManageTasksSection />
-      <PricingSection />
+      <AboutUsSection />
+      <MinistriesSection />
+      <UpcomingEventsSection />
+      <LocationTimesSection />
       <TestimonialsSection />
-      <GetStartedSection />
+      <JoinUsSection />
       <Footer />
     </main>
   );

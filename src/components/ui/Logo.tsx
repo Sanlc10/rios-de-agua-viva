@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -7,18 +8,14 @@ interface LogoProps {
 
 export default function Logo({ className }: LogoProps) {
     return (
-        <svg
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={cn("w-10 h-10", className)}
-        >
-            {/* Outer Circle */}
-            <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" />
-            {/* Middle Circle */}
-            <circle cx="50" cy="50" r="28" stroke="currentColor" strokeWidth="8" />
-            {/* Inner Dot/Circle */}
-            <circle cx="50" cy="50" r="12" fill="currentColor" />
-        </svg>
+        <div className={cn("relative w-10 h-10", className)}>
+            <Image
+                src="/logo.png"
+                alt="Logo"
+                fill
+                priority
+                className="object-contain"
+            />
+        </div>
     );
 }
